@@ -1,4 +1,5 @@
 body{
   background-image: url('files/original.gif');
   background-size: cover;
+  background-repeat: repeat;
 }
