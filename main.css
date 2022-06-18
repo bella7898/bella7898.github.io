@@ -1,4 +1,4 @@
 body{
-  background-image: ('original.gif';
+  background-image: url('files/original.gif');
   background-size: cover;
 }
