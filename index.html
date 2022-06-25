@@ -19,15 +19,32 @@
             transform: translate3d(-2000px, 0, 0);
         }
     }
-    
+    #body{
+      display: flex; flex-direction: column;
+    }
+    #head{
+      flex-shrink: 0;
+    }
+    #content{
+      overflow-y: auto;
+    }
+    #foot{
+      height: 50px;
+      flex-shrink: 0;
+    }
   </style>
 </head>
-<body>
-  <div class="wrapper">
-    <div class="sliding-background"></div>
-  </div>
-</body>
-<footer>
+<div id="body">
+  <header id="head">
   
-</footer>
+  </header>
+  <body id="content">
+    <div class="wrapper">
+      <div class="sliding-background"></div>
+    </div>
+  </body>
+  <footer id="foot">
+    
+  </footer>
+</div>
 </html>
