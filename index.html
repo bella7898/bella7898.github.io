@@ -9,23 +9,40 @@
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="cloud">
-            <img src="assets/cloud.png"/>
-        </div>
-        <div class="dino">
-            <img src="assets/Dino1.png"/>
-        </div>
-        <div class="ground">
-            <img src="assets/ground.png"/>
-        </div>
+    <header>
+        <a href="#about"><h4>About Me</h4></a>
+        <a href="#skills"><h4>Skills/Tech Stack</h4></a>
+        <a href="#courses"><h4>Courses</h4></a>
+        <a href="#projects"><h4>Projects</h4></a>
+        <a href="#contact"><h4>Contact</h4></a>
+    </header>
+    <div class="container" id="container">
+        <img class="cloud" src="assets/cloud.png"/>
+        <img class="cloud1" src="assets/cloud.png"/>
+        <img class="cloud2" src="assets/cloud.png"/>
+        <img class="dino" id="dino" src="assets/Dino1.png"/>
+        <img class="ground" src="assets/ground.png"/>
         
+        <h3 id="start-text">Click me!</h3>
     </div>
-    <div class="text">
+    <div class="text" id="about">
         <h3>Hey, I'm Bella!</h3>
-        <p>Projects I have worked on:</p>
+        <p>I'm a first-year engineering student at UBC, hoping to major in Electrical or Computer engineering next year 🤖</p>
+        <p>In my free time, I love to work on random coding projects, play pickleball, and solve puzzles on chess.com ♟️</p>
+        <p>Highly interested in renewable energy, sustainable design, and climate justice 🌱</p>
+
+        <h3 id="skills">Skills/Tech Stack</h3>
+        <p>next.js, react, gemini API, discord.py, pandas, flask, javascript, expo go, react native</p>
+
+        <h3 id="courses">Experience</h3>
+        <p><b>Computer Programming 11</b> @ Vancouver Learning Network - Java</p>
+        <p><b>APSC 160 Introduction to Computation in Engineering Design </b>@ UBC - C and Arduino programs</p>
+        <p><b>Volunteer Web Developer</b> @ nonprofit org HeartsofLove</p>
+
+        <h3 id="projects">Projects I have worked on:</h3>
     </div>
     <div class="gallery">
         <div class="project">

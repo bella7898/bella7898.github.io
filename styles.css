@@ -1,13 +1,28 @@
+html{
+    height: 100%l;
+    scroll-behavior: smooth;
+}
+
 body{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
+    background-color: #f7f4ef;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    margin: auto; 
+    margin-top: 100px;
+    width: 75%;
+    gap: 50px;
 }
 
 .container{
     position: relative;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 30px;
     width: 75%;
     max-width: 40em;
     height: 120px;
@@ -21,10 +36,40 @@ body{
     right: 10px;
 }
 
-.dino{
+.cloud1{
+    position: absolute;
+    top: 20px;
+    right: 50%;
+}
+
+.cloud2{
+    position: absolute;
+    top: 10px;
+    right: 15%;
+}
+
+#dino{
     position: absolute;
     left: 5px;
     bottom: 3px;
+}
+
+.jump{
+    animation: jumpAnimation 0.5s ease-out;
+}
+
+@keyframes jumpAnimation{
+    0% { bottom: 3px;}
+    50% { bottom: 70px;}
+    100% { bottom: 3px;}
+}
+
+#start-text{
+    position: absolute;
+    color: grey;
+    left: 35%;
+    top: 20%;
+    font-size: 20px;
 }
 
 .ground{
@@ -40,7 +85,11 @@ body{
     max-width: 40em;
 }
 
-.text p{
+a{
+    color: black;
+}
+
+p{
     font-family: "Source Code Pro", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -51,13 +100,23 @@ h3{
     font-family: "Press Start 2P", serif;
     font-weight: 400;
     font-style: normal;
+    display: inline-block;
+}
+
+h4{
+    font-family: "Press Start 2P", serif;
+    font-weight: 400;
+    font-size: 9px;
+    font-style: normal;
+    display: inline-block;
 }
 
 .gallery{
     display: grid;
     margin: auto;
     margin-top: 20px;
-    width: 60%;
+    width: 75%;
+    max-width: 50em;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
     align-items: start;
