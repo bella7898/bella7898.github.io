@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isJumping = false;
     let isRunning = false;
-    let dinoPosition = 10;
+    let dinoPosition = 110;
+    let dinoYPosition = 260;
 
     function jump(){
         if (!isJumping){
@@ -52,6 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
             dinoPosition += 1;
             dino.style.left = dinoPosition + "px"
        
+            if(dinoPosition >= 300){
+                dinoYPosition = 300;
+                dino.style.top = dinoYPosition + "px"
+                dino.style.rotate= "180deg"
+            }
             requestAnimationFrame(moveDino);
         }
     }
