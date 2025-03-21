@@ -17,8 +17,11 @@ header{
     justify-content: center;
     margin: auto; 
     margin-top: 10px;
-    width: 75%;
     gap: 50px;
+}
+
+.logo{
+    padding-top: 20px;
 }
 
 .container{
@@ -79,6 +82,33 @@ header{
     bottom: 10px;
 }
 
+.marquee{
+    white-space: nowrap; 
+    overflow: hidden; 
+    position: relative; 
+    color: green;
+    margin:0 auto;
+}
+
+.marquee span{
+    display: inline-block;
+    min-width: 200%;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee2 span{
+    animation-delay: 10s;
+}
+
+@keyframes marquee{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-50%);
+    }
+}
+
 .text{
     position: relative;
     margin: auto;
@@ -121,7 +151,7 @@ h4{
     max-width: 50em;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
-    align-items: start;
+    align-items: stretch;
     gap: 10px;
 }
 

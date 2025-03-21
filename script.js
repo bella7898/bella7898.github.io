@@ -55,8 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
        
             if(dinoPosition >= 300){
                 dinoYPosition = 300;
-                dino.style.top = dinoYPosition + "px"
-                dino.style.rotate= "180deg"
             }
             requestAnimationFrame(moveDino);
         }
