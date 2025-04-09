@@ -24,6 +24,13 @@ header{
     padding-top: 20px;
 }
 
+.plants{
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    gap: 20px;
+}
+
 .container{
     position: relative;
     margin: auto;
@@ -171,4 +178,15 @@ h4{
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+.footer{
+    padding: 10px 0;
+}
+
+.footer-links{
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    gap: 15px;
 }
