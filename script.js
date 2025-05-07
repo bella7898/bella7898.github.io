@@ -1,62 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const dino = document.getElementById("dino");
-    const gameContainer = document.getElementById("container");
-    const startText = document.getElementById("start-text");
+const frames =["assets/Owl2.png", "assets/Owl1.png", "assets/Owl.png", "assets/Ow.png"];
+let currentFrame=0;
+const owl = document.getElementById("owl");
 
-    let isJumping = false;
-    let isRunning = false;
-    let dinoPosition = 110;
-    let dinoYPosition = 260;
-
-    function jump(){
-        if (!isJumping){
-            isJumping = true;
-            dino.classList.add("jump");
-        
-            setTimeout(() => {
-                dino.classList.remove("jump");
-                isJumping = false;
-            }, 500);
-        }
-    } 
-
-    function startGame(){
-        if (!isRunning){
-            isRunning = true;
-            startText.style.display = "none";
-            runAnimation();
-            moveDino();
-        }
-        jump();
-    }
-
-    document.addEventListener("keydown", (event) => {
-        if(event.code === "Space"){
-            startGame();
-        }
-    });
-
-    gameContainer.addEventListener("click", startGame);
-
-    function runAnimation(){
-        let dinoState = true;
-        setInterval(() => {
-            if(isRunning && !isJumping){
-                dino.src = dinoState ? "assets/Dino1.png" : "assets/Dino2.png";
-                dinoState = !dinoState;
-            }
-        }, 100);
-    }
-
-    function moveDino(){
-        if(isRunning) {
-            dinoPosition += 1;
-            dino.style.left = dinoPosition + "px"
-       
-            if(dinoPosition >= 300){
-                dinoYPosition = 300;
-            }
-            requestAnimationFrame(moveDino);
-        }
-    }
-});
+setInterval(() =>{
+    currentFrame = (currentFrame + 1) % frames.length;
+    owl.src = frames[currentFrame];
+}, 100);
