@@ -28,8 +28,11 @@ export default function Projects() {
   ];
 
   return (
-    <section className="projects" 
+    <div>
+      <h1>Projects</h1>
+    <section id="projects" className="projects" 
       onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}>
+        
       
       {projects.map((p, i) => (
         <div 
@@ -55,5 +58,6 @@ export default function Projects() {
         />
       )}
     </section>
+    </div>
   );
 }
