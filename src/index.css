@@ -1,5 +1,4 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,6 +10,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('./assets/JetBrainsMono-Regular.woff2') format('woff2'),
+       url('./assets/JetBrainsMono-Regular.woff2') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('./assets/JetBrainsMono-Bold.woff2') format('woff2'),
+       url('./assets/JetBrainsMono-Bold.woff2') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 a{

@@ -11,7 +11,7 @@
 
 .typewriter {
   overflow: hidden;
-  border-right: 4px solid orange; 
+  border-right: 4px solid purple; 
   white-space: nowrap;
   font-size: 3rem;
   font-weight: bold;
@@ -21,7 +21,7 @@
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 9.7ch } /* Adjust to your character count */
+  to { width: 9.9ch } /* Adjust to your character count */
 }
 
 @keyframes blink {
@@ -36,7 +36,7 @@ button{
 }
 
 button:hover{
-  background-color: darkorange;
+  background-color: purple;
   border: none;
   transform: scale(1.1);
   transition: transform 0.3s ease, background-color 0.3s ease;
@@ -68,6 +68,36 @@ a:hover{
   }
 }
 
+.projects {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.project-card {
+  position: relative;
+  border: 1px solid black;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.project-card:hover {
+  background-color: #111;
+  color: #f5f5f5;
+}
+
+.hover-image {
+  position: fixed;
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: top 0.05s, left 0.05s; /* smooth follow */
+}
+ 
 .contact-links{
   display: flex;
   flex-direction: row; 

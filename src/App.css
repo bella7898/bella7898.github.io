@@ -1,9 +1,9 @@
 body, html, #root {
+  font-family: 'MyFont', system-ui, sans-serif;
   margin: 0;
   padding: auto;
   height: 100%;
   width: 100%;
-  font-family: sans-serif;
   overflow: hidden;
   scroll-behavior: smooth;
 }
@@ -36,7 +36,7 @@ body, html, #root {
 
 .nav-links *:hover{
   color: black;
-  text-decoration: solid underline orange 3px;
+  text-decoration: solid underline purple 3px;
 }
 
 .container {
