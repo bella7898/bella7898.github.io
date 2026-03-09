@@ -4,7 +4,7 @@ body, html, #root {
   padding: auto;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -17,6 +17,7 @@ body, html, #root {
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 5px darkgrey;
+  background-color: #F5F5F5;
 }
 
 .heroLink{
@@ -47,6 +48,7 @@ body, html, #root {
 
 .left {
   flex: 1;
+  min-width: 0;
   overflow-y: scroll;
   padding: 0rem 5rem;
   display: flex;
@@ -57,18 +59,25 @@ body, html, #root {
 }
 
 .right {
-  flex: 1;
+  width: 45%;
+  flex-shrink: 0;
   position: sticky;
   top: 0;
   height: 100vh;
 }
 
 @media(max-width: 1000px){
-  .left{
-    flex: 2; 
-  }
   .right{
-    flex: 1;
+    width: 30%;
+  }
+}
+
+@media(max-width: 650px){
+  .right{
+    display: none;
+  }
+  .leeft{
+    padding: 0rem 2rem;
   }
 }
 

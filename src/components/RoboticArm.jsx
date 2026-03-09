@@ -22,10 +22,10 @@ export default function RoboticArm({ scrollContainerRef }) {
     return () => container.removeEventListener('scroll', handleScroll);
   }, [scrollContainerRef]);
 
-  useFrame(() => {
-    if (armRef.current) {
-      armRef.current.rotation.y = scrollTop * 0.002;
-    }
+  useFrame((state) => {
+  if (armRef.current) {
+    armRef.current.rotation.y = scrollTop * 0.002
+  }
   });
 
   return (
@@ -39,7 +39,8 @@ export default function RoboticArm({ scrollContainerRef }) {
 
       {/* Objects (cubes) */}
       <group position={[0, -0.5, 0]}>
-        <mesh position={[1, 0, 0]}>
+        <mesh position={[1, 0, 0]}
+        onClick={() => setPose('pick')}>
           <boxGeometry args={[0.3, 0.3, 0.3]} />
           <meshStandardMaterial color="skyblue" />
           <Edges scale={1.01} threshold={15} color="black" />
