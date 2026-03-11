@@ -96,11 +96,7 @@ export default function Skills() {
           <div
             key={cat.category}
             style={{
-              border: "1px solid #e5e7eb",
-              borderRadius: "10px",
-              padding: "20px 24px",
-              background: "#fafafa",
-              borderTop: `3px solid ${cat.color}`,
+              padding: "10px 10px",
             }}
           >
             {/* Category header */}
