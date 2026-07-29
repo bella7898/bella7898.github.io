@@ -13,7 +13,7 @@ import './App.css';
 function HomePage(){
   const scrollRef = useRef();
 
-  return (<div className="container" style={{ height: '100vh', backgroundColor: '#f5f5f5' }}>
+  return (<div className="container" style={{ height: '100vh', backgroundColor: '#ffffff' }}>
         <div className="left" ref={scrollRef}>
           <Hero />
           <Skills /> 
