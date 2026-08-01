@@ -1,7 +1,5 @@
-import { Canvas } from '@react-three/fiber';
-import RoboticArm from './components/RoboticArm';
 import { useRef } from 'react';
-import DisplayImages from './components/DisplayImages.jsx';
+import Hero from './components/Hero.jsx';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -13,22 +11,13 @@ import './App.css';
 function HomePage(){
   const scrollRef = useRef();
 
-  return (<div className="container" style={{ height: '100vh', backgroundColor: '#ffffff' }}>
-        <div className="left" ref={scrollRef}>
-          <DisplayImages />
-          <Skills /> 
-          <Projects /> 
-          <Contact />
-        </div>
-      
-        <div className="right">
-          <Canvas camera={{ position: [-2, 1.75, -3], fov: 80}}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[2, 4, 5]} intensity={1} />
-            <RoboticArm scrollContainerRef={scrollRef}/>
-          </Canvas>
-        </div>
-      </div>
+  return (
+    <div className="container" ref={scrollRef}>
+      <Hero />
+      <Skills /> 
+      <Projects /> 
+      <Contact />
+    </div>
   );
 }
 

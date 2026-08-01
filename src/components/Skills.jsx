@@ -1,7 +1,7 @@
 const skills = [
   {
     category: "Programming Languages",
-    color: "#3a393b",
+    color:"#8ba9fa",
     items: [
       { name: "Python", level: 92 },
       { name: "Java", level: 80 },
@@ -11,7 +11,7 @@ const skills = [
   },
   {
     category: "Web / Mobile Dev",
-    color: "#3a393b",
+    color: "#8ba9fa",
     items: [
       { name: "React", level: 88 },
       { name: "React Native", level: 82 },
@@ -22,7 +22,7 @@ const skills = [
   },
   {
     category: "Electrical Engineering",
-    color: "#3a393b",
+    color: "#8ba9fa",
     items: [
       { name: "SolidWorks", level: 68 },
       { name: "KiCad", level: 62 },
@@ -30,7 +30,7 @@ const skills = [
   },
   {
     category: "Computer Engineering",
-    color: "#3a393b",
+    color: "#8ba9fa",
     items: [
       { name: "SystemVerilog", level: 75 },
       { name: "Nios V Assembly", level: 70 },
@@ -60,7 +60,7 @@ function BlockBar({ level, color }) {
               if (i < filled * 0.8) return color + "aa";
               return color + "55";
             })(),
-            border: `1px solid ${i < filled ? color + "66" : "#d1d5db"}`,
+            border: `1px solid ${i < filled ? color + "aa" : "#555"}`,
             transition: "background 0.2s",
           }}
         />
@@ -99,7 +99,6 @@ export default function Skills() {
               padding: "10px 10px",
             }}
           >
-            {/* Category header */}
             <div
               style={{
                 display: "flex",
@@ -124,14 +123,13 @@ export default function Skills() {
                   fontWeight: "700",
                   letterSpacing: "0.06em",
                   textTransform: "uppercase",
-                  color: "#374151",
+                  color: "#e5e7eb",
                 }}
               >
                 {cat.category}
               </span>
             </div>
 
-            {/* Skill rows */}
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {cat.items.map((item) => (
                 <div
@@ -145,7 +143,7 @@ export default function Skills() {
                   <span
                     style={{
                       fontSize: "13px",
-                      color: "#4b5563",
+                      color: "#d1d5db",
                       whiteSpace: "nowrap",
                       overflow: "hidden",
                       textOverflow: "ellipsis",

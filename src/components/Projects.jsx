@@ -130,7 +130,7 @@ export default function Projects() {
       </div>
 
       <section id="projects" className="projects" 
-        style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
         
         {filtered.map((p, i) => (
           <div

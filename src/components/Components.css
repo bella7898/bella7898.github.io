@@ -15,13 +15,13 @@
   white-space: nowrap;
   font-size: 3rem;
   font-weight: bold;
-  width: 0; /* Start from 0 width */
+  width: 0;
   animation: typing 2s steps(12) forwards, blink 0.75s step-end infinite;
 }
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 9.9ch } /* Adjust to your character count */
+  to { width: 9.9ch }
 }
 
 @keyframes blink {
@@ -29,21 +29,35 @@
 }
 
 button{
-  background-color: black;
-  border-radius: 2rem;
-  color: white;
+  background-color: #f5f5f5;
+  color: #111;
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
   margin: 0.5rem 0.4rem;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover{
-  background-color: purple;
-  border: none;
-  transform: scale(1.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: #8bbbfa;
+  color: #111;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 165, 250, 0.35);
 }
 
-a:hover{
-  color: white;
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .scroll-down {
@@ -53,8 +67,8 @@ a:hover{
   transform: translateX(-50%);
   width: 24px;
   height: 24px;
-  border-bottom: 2px solid #000;
-  border-right: 2px solid #000;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
   transform: rotate(45deg);
   animation: bounce 1.2s infinite;
 }
@@ -75,15 +89,15 @@ a:hover{
 
 .project-card {
   position: relative;
-  border: 1px solid black;
+  border: 1px solid #444;
   padding: 1rem 0.5rem;
   cursor: pointer;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .project-card:hover {
-  background-color: #111;
-  color: #f5f5f5;
+  background-color: #f5f5f5;
+  color: #111;
 }
 
 .hover-image {
@@ -94,7 +108,7 @@ a:hover{
   border-radius: 20px;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: top 0.05s, left 0.05s; /* smooth follow */
+  transition: top 0.05s, left 0.05s;
 }
  
 .contact-links{
@@ -106,14 +120,14 @@ a:hover{
 
 .contact-links i{
   font-size: 20px;
-  color: black;
+  color: white;
 }
 
 .project-link {
   font-size: 0.8rem;
   padding: 0.25rem 0.75rem;
-  border: 1px solid #000;
-  color: #000;
+  border: 1px solid #fff;
+  color: #fff;
   border-radius: 4px;
   text-decoration: none;
   opacity: 0.7;
@@ -123,6 +137,46 @@ a:hover{
 .project-link:hover {
   opacity: 1;
   text-decoration: none;
-  color: #f5f5f5;
-  border: 1px solid #f5f5f5;
+  color: #111;
+  border: 1px solid #111;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 80px;
+  gap: 0.75rem;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.gallery-item-1 { grid-column: span 2; grid-row: span 4; }
+.gallery-item-2 { grid-column: span 2; grid-row: span 2; }
+.gallery-item-3 { grid-column: span 2; grid-row: span 5; }
+.gallery-item-4 { grid-column: span 2; grid-row: span 3; }
+.gallery-item-5 { grid-column: span 4; grid-row: span 2; }
+
+.hero-extended {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-gallery {
+  flex: 1;
+  height: 90vh;
 }

@@ -1,33 +1,16 @@
 :root {
   line-height: 1.5;
   font-weight: 400;
+  font-size: 18px; /* was: default 16px browser base — this scales all rem units up ~12% */
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #181818;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@font-face {
-  font-family: 'MyFont';
-  src: url('./assets/JetBrainsMono-Regular.woff2') format('woff2'),
-       url('./assets/JetBrainsMono-Regular.woff2') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'MyFont';
-  src: url('./assets/JetBrainsMono-Bold.woff2') format('woff2'),
-       url('./assets/JetBrainsMono-Bold.woff2') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
 }
 
 a{
@@ -37,7 +20,7 @@ a{
 }
 
 a:hover {
-  color: white;
+  color: #a3c3ff;
 }
 
 body {
@@ -49,7 +32,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.9em;
   line-height: 1.1;
 }
 
@@ -65,22 +48,9 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #6495ff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #F5F5F5;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
