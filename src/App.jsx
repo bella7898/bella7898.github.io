@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Hero from './components/Hero.jsx';
-import Skills from './components/Skills';
+import Experience from './components/Experience.jsx';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import { Routes, Route} from 'react-router-dom';
@@ -14,7 +14,7 @@ function HomePage(){
   return (
     <div className="container" ref={scrollRef}>
       <Hero />
-      <Skills /> 
+      <Experience />
       <Projects /> 
       <Contact />
     </div>

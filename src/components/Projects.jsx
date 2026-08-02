@@ -102,7 +102,7 @@ export default function Projects() {
     : projects.filter(p => p.type === activeFilter);
 
   return (
-    <div>
+    <div class="sections">
       <h1>Projects</h1>
 
       {/* Filter pills */}
