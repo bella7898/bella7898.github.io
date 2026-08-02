@@ -65,7 +65,6 @@ export default function Projects() {
       desc: 'Designed and built a reflow oven controller using a DE10-Lite FPGA, with CV8052 soft core processor',
       img: reflowoven,
       links:[
-        { label: 'Project Report', to: '/reflowoven', internal: true}, 
         { label: 'Video', href:'https://www.youtube.com/watch?v=6cuWTV0r89I', internal: false},
       ], 
       isWinner: false

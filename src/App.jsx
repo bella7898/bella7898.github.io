@@ -5,7 +5,6 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import { Routes, Route} from 'react-router-dom';
 import NotFound from './components/NotFound';
-import ReflowOven from './components/ReflowOven';
 import './App.css';
 
 function HomePage(){
@@ -27,7 +26,7 @@ function App() {
       <div className="navbar">
         <a className="heroLink" href="#hero">Bella Wang</a>
         <div className="nav-links">
-          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
           <button>View Resume</button>
@@ -36,7 +35,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/reflowoven" element={<ReflowOven />} />
       </Routes>
     </div>
   )
