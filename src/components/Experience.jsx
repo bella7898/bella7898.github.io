@@ -5,8 +5,8 @@ const experience = [
         period: "05/2026 – Present", 
         color: "#8ba9fa",
         points: [
-        "Supported development of project management standards under a department supervisor",
-        "Contributed to documentation and cross-functional coordination across project delivery workflows",
+        "Supported development of project management standards",
+        "Developed Sharepoint team sites to support the accessibility of project management resources",
         ],
     },
     {
@@ -15,9 +15,9 @@ const experience = [
         period: "09/2025 – Present", 
         color: "#8ba9fa",
         points: [
-        "PCB design in KiCad for a hydrophone-array sound localization board, including preamp and op-amp signal chain prototyping",
-        "Handled silkscreen artwork, board color theming, and layout decisions for the current board revision",
-        "Worked across circuit design and acoustic signal processing for the team's localization system",
+        "Designed a Printed Circuit Board for an interface between the ADS8528 chip and DE10 Lite FPGA board",
+        "Handled mechanical constraints by measuring existing DE10 Lite header and standoff placement and 3d printng PCB board outline to test initial connections",
+        "Optimized Python sound localization simulation software"
         ],
     },
     {
