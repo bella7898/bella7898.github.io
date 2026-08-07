@@ -5,7 +5,8 @@ const experience = [
         period: "05/2026 – Present", 
         color: "#8ba9fa",
         points: [
-        "Supported development of project management standards",
+        "Supported development of project management standards applicable for all Metro Vancouver project delivery",
+        "Configured workflows for Project Management Information Systems (PMIS) to be used by Coquitlam project teams and Corporate departments",
         "Developed Sharepoint team sites to support the accessibility of project management resources",
         ],
     },
@@ -110,7 +111,9 @@ export default function Experience() {
               }}
             >
               {align === "left" ? (
-                <ExperienceCard {...item} />
+                <div style={{ justifySelf: "end", width: "100%", maxWidth: "480px" }}>
+                  <ExperienceCard {...item} />
+                </div>
               ) : (
                 <div />
               )}
@@ -153,7 +156,9 @@ export default function Experience() {
               </div>
 
               {align === "right" ? (
-                <ExperienceCard {...item} />
+                <div style={{ justifySelf: "start", width: "100%", maxWidth: "480px" }}>
+                  <ExperienceCard {...item} />
+                </div>
               ) : (
                 <div />
               )}

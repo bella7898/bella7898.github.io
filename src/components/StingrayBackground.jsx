@@ -18,18 +18,20 @@ function buildRayGeometry(segsU = 18, segsV = 12) {
   const indices = [];
   const maxWidth = 1.35;
   const bodyLength = 2.6;
-
-  const widthAt = (v) => Math.pow(Math.sin(Math.PI * v), 1.7);
-
+  
+  const headExp = 0.9;  // lower = blunter nose
+  const tailExp = 2.3;  // higher = sharper tail-base point
+  const widthAt = (v) => Math.pow(Math.sin(Math.PI * v), headExp + (tailExp - headExp) * v);
+  
   for (let j = 0; j <= segsV; j++) {
-    const v = j / segsV;
-    for (let i = 0; i <= segsU; i++) {
-      const u = (i / segsU) * 2 - 1; // -1..1 across the wingspan
-      const x = u * maxWidth * widthAt(v);
-      const z = v * bodyLength;
-      const dome = 0.4 * Math.cos((u * Math.PI) / 2) * (0.5 + 0.5 * Math.sin(Math.PI * v));
-      positions.push(x, dome, z);
-    }
+      const v = j / segsV;
+      for (let i = 0; i <= segsU; i++) {
+        const u = (i / segsU) * 2 - 1;
+        const x = u * maxWidth * widthAt(v);
+        const z = v * bodyLength;
+        const dome = 0.4 * Math.cos((u * Math.PI) / 2) * widthAt(v);
+        positions.push(x, dome, z);
+      }
   }
 
   const rowLen = segsU + 1;
@@ -54,23 +56,24 @@ function buildRayGeometry(segsU = 18, segsV = 12) {
     bodyLength,
     widthAt,
     basePositions: positions.slice(),
-    backTipY: 0.4 * 0.5, // dome height at u=0, v=1: 0.4*cos(0)*(0.5+0.5*sin(pi))
+    backTipY: 0, 
   };
   return geometry;
 }
 
 function flapGeometry(geometry, t) {
-  const { segsU, segsV, basePositions } = geometry.userData;
+  const { segsU, segsV, basePositions, widthAt } = geometry.userData;
   const pos = geometry.attributes.position;
   const rowLen = segsU + 1;
 
   for (let j = 0; j <= segsV; j++) {
     const v = j / segsV;
+    const taper = widthAt(v);
     for (let i = 0; i <= segsU; i++) {
       const idx = j * rowLen + i;
       const u = (i / segsU) * 2 - 1;
       const base = basePositions[idx * 3 + 1];
-      const flap = 0.34 * Math.pow(Math.abs(u), 1.4) * Math.sin(2 * Math.PI * (v * 1.15 - t * 0.7));
+      const flap = 0.34 * Math.pow(Math.abs(u), 1.4) * taper * Math.sin(2 * Math.PI * (v * 1.15 - t * 0.45));
       pos.setY(idx, base + flap);
     }
   }
@@ -85,10 +88,10 @@ function tailPoints(t, bodyLength, anchorY) {
     const s = i / segments;
     const z = bodyLength + s * 1.7;
     const vTail = 1 + s * 0.65; // continue the body's v coordinate past the tail base
-    const amp = 0.3 * (0.25 + 0.75 * s); // amplitude grows toward the tip, like the wingtips
+    const amp = 0.3 * s; // amplitude grows toward the tip, like the wingtips
     // same traveling-wave formula as the wing flap (v*1.15 - t*0.7), so the tail
     // reads as a continuation of the body's motion rather than its own animation
-    const yFlap = amp * Math.sin(2 * Math.PI * (vTail * 1.15 - t * 0.7));
+    const yFlap = amp * Math.sin(2 * Math.PI * (vTail * 1.15 - t * 0.45));
     pts.push(new THREE.Vector3(0, anchorY + yFlap, z));
   }
   return pts;
@@ -129,10 +132,10 @@ function createRay(scene, { scale = 1, path, timeOffset = 0 }) {
   const tailMaterial = new THREE.MeshStandardMaterial({
     color: ACCENT,
     transparent: true,
-    opacity: 0.7,
+    opacity: 0.9,
     roughness: 0.4,
   });
-  let tailMesh = null;
+  let tailMesh = new THREE.Mesh(geometry, wireMaterial);
   let heading = 0;
 
   function update(t) {
@@ -147,7 +150,7 @@ function createRay(scene, { scale = 1, path, timeOffset = 0 }) {
     const curve = new THREE.CatmullRomCurve3(
       tailPoints(tt, geometry.userData.bodyLength, geometry.userData.backTipY)
     );
-    const tailGeo = new THREE.TubeGeometry(curve, 16, 0.02, 6, false);
+    const tailGeo = new THREE.TubeGeometry(curve, 16, 0.01, 6, false);
     tailMesh = new THREE.Mesh(tailGeo, tailMaterial);
     group.add(tailMesh);
 
@@ -205,7 +208,7 @@ export default function StingrayBackground() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 80);
-    camera.position.set(0, 15, 10.5);
+    camera.position.set(0, 7.5, 13);
     camera.lookAt(0, 0, 1);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -225,7 +228,7 @@ export default function StingrayBackground() {
 
     // ray 1: original size, its own randomized wander
     const ray1 = createRay(scene, {
-      scale: 1,
+      scale: 2,
       timeOffset: 0,
       path: {
         seed: 0,
