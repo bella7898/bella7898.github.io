@@ -181,3 +181,69 @@ button a {
   flex: 1;
   height: 90vh;
 }
+#hero .glitch {
+  position: relative;
+  display: inline-block;
+  color: #fff; /* explicit, don't rely on inheritance */
+}
+
+#hero .glitch::before,
+#hero .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  opacity: 0;
+}
+
+#hero .glitch::before {
+  color: #ff2b6d;
+  animation: glitch-anim-1 5s steps(1) infinite;
+}
+
+#hero .glitch::after {
+  color: #00e5ff;
+  animation: glitch-anim-2 5s steps(1) infinite;
+}
+
+@keyframes glitch-anim-1 {
+  0%, 89%, 100% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.85;
+    transform: translate(-4px, 1px) skewX(4deg);
+    clip-path: inset(15% 0 60% 0);
+  }
+  91.5% {
+    opacity: 0.85;
+    transform: translate(3px, -2px) skewX(-2deg);
+    clip-path: inset(55% 0 10% 0);
+  }
+  93% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0%, 87%, 100% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0.85;
+    transform: translate(4px, -1px);
+    clip-path: inset(5% 0 75% 0);
+  }
+  89.5% {
+    opacity: 0.85;
+    transform: translate(-3px, 2px);
+    clip-path: inset(70% 0 5% 0);
+  }
+  91% {
+    opacity: 0;
+  }
+}
