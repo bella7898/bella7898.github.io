@@ -5,9 +5,10 @@ const experience = [
         period: "05/2026 – Present", 
         color: "#8ba9fa",
         points: [
-        "Supported development of project management standards applicable for all Metro Vancouver project delivery",
-        "Configured workflows for Project Management Information Systems (PMIS) to be used by Coquitlam project teams and Corporate departments",
-        "Developed Sharepoint team sites to support the accessibility of project management resources",
+        "Contribute to development of project management standards, guidelines, and templates to support consistent project delivery across the organization",
+        "Support the implementation and adoption of Project Management Information Systems (PMIS) for the Coquitlam Lake Water Supply Project and corporate project teams",
+        "Design and maintain SharePoint Team Sites to support communication of project management resources and improve information accessibility",
+        "Develop frontend administrative controls that streamline repetitive Team Site management tasks to improve administrative efficiency and simplify long-term site maintenance."
         ],
     },
     {
