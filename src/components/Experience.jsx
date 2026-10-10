@@ -1,3 +1,19 @@
+import { useState, useEffect } from "react";
+
+function useIsMobile(breakpoint = 650) {
+  const query = `(max-width: ${breakpoint}px)`;
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" && window.matchMedia(query).matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, [query]);
+  return isMobile;
+}
+
 const experience = [
     {
         role: "Project Research Assistant",
@@ -42,7 +58,10 @@ const skills = [
   "Standards Development", "Technical Documentation",
 ];
 
-function ExperienceCard({ role, org, period, color, points }) {
+function ExperienceCard({ role, org, period, color, points, collapsible }) {
+  const [open, setOpen] = useState(false);
+  const collapsed = collapsible && !open;
+
   return (
     <div style={{ textAlign: "left" }}>
       <div style={{ marginBottom: "6px" }}>
@@ -54,21 +73,63 @@ function ExperienceCard({ role, org, period, color, points }) {
         <span style={{ fontSize: "13px", color: color }}>{org}</span>
         <span style={{ fontSize: "13px", color: "#9ca3af" }}> · {period}</span>
       </div>
-      <ul style={{ margin: 0, paddingLeft: "18px" }}>
-        {points.map((point, i) => (
-          <li
-            key={i}
+
+      <div
+        style={{
+          position: "relative",
+          maxHeight: collapsed ? "8rem" : "1000px",
+          overflow: "hidden",
+          transition: "max-height 0.35s ease",
+        }}
+      >
+        <ul style={{ margin: 0, paddingLeft: "18px" }}>
+          {points.map((point, i) => (
+            <li
+              key={i}
+              style={{
+                fontSize: "14px",
+                color: "#d1d5db",
+                lineHeight: "1.6",
+                marginBottom: "4px",
+              }}
+            >
+              {point}
+            </li>
+          ))}
+        </ul>
+        {collapsed && (
+          <div
             style={{
-              fontSize: "14px",
-              color: "#d1d5db",
-              lineHeight: "1.6",
-              marginBottom: "4px",
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "3.5rem",
+              background: "linear-gradient(to bottom, transparent, #181818)",
+              pointerEvents: "none",
             }}
-          >
-            {point}
-          </li>
-        ))}
-      </ul>
+          />
+        )}
+      </div>
+
+      {collapsible && (
+        <button
+          onClick={() => setOpen(!open)}
+          style={{
+            background: "none",
+            color: color,
+            border: "none",
+            padding: 0,
+            margin: "8px 0 0",
+            fontSize: "13px",
+            fontWeight: 600,
+            boxShadow: "none",
+            transform: "none",
+          }}
+        >
+          {open ? "Show less" : "Read more"}
+        </button>
+      )}
     </div>
   );
 }
@@ -92,14 +153,36 @@ function SkillPill({ name }) {
     </span>
   );
 }
-
 export default function Experience() {
+  const isMobile = useIsMobile();
+
   return (
-    <div id="experience" className="sections" style={{ padding: "40px 5rem" }}>
+    <div
+      id="experience"
+      className="sections"
+      style={{ padding: isMobile ? "40px 1.25rem" : "40px 5rem" }}
+    >
       <h1 style={{ marginBottom: "32px" }}>Experience</h1>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: isMobile ? "28px" : "48px",
+        }}
+      >
         {experience.map((item, i) => {
+          if (isMobile) {
+            return (
+              <div
+                key={item.role}
+                style={{ borderLeft: `2px solid ${item.color}`, paddingLeft: "16px" }}
+              >
+                <ExperienceCard {...item} collapsible />
+              </div>
+            );
+          }
+
           const align = i % 2 === 0 ? "left" : "right";
           return (
             <div
@@ -119,7 +202,6 @@ export default function Experience() {
                 <div />
               )}
 
-              {/* center track: dot with short visible stubs above/below, no line crossing the gap between entries */}
               <div
                 style={{
                   display: "flex",
@@ -168,7 +250,6 @@ export default function Experience() {
         })}
       </div>
 
-      {/* skills ribbon, now living under the experience timeline */}
       <div
         style={{
           marginTop: "56px",
@@ -186,7 +267,6 @@ export default function Experience() {
             animation: "skills-ribbon 40s linear infinite",
           }}
         >
-          {/* render the list twice back-to-back for a seamless loop */}
           {[...skills, ...skills].map((name, i) => (
             <SkillPill key={i} name={name} />
           ))}
