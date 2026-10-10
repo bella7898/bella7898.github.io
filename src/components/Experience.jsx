@@ -17,7 +17,7 @@ const experience = [
         period: "09/2025 – Present", 
         color: "#8ba9fa",
         points: [
-        "Designed a Printed Circuit Board for an interface between the ADS8528 chip and DE10 Lite FPGA board",
+        "Design a custom PCB interface between the ADS8528 chip and DE10 Lite FPGA board",
         "Handled mechanical constraints by measuring existing DE10 Lite header and standoff placement and 3d printng PCB board outline to test initial connections",
         "Optimized Python sound localization simulation software"
         ],

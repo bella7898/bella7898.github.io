@@ -78,7 +78,63 @@ body, html, #root {
   .right{
     display: none;
   }
-  .leeft{
+  .left{
     padding: 0rem 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  :root { font-size: 16px; }
+
+  h1 { font-size: clamp(2.2rem, 11vw, 3.9rem); }
+
+  .typewriter { font-size: clamp(1.6rem, 9vw, 3rem); }
+
+  .navbar {
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sections {
+    padding: 0 1.25rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .left {
+    padding: 0 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .hero-extended {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-gallery {
+    width: 100%;
+    height: auto;
+  }
+
+  .gallery {
+    grid-auto-rows: 50px;
+    gap: 0.5rem;
+  }
+
+  .contact-links { flex-wrap: wrap; }
+
+  .scroll-down { left: 50%; bottom: 1.5rem; }
+}
+
+/* touch devices: no hover, so kill the cursor-following image and sticky hover */
+@media (hover: none) {
+  .hover-image { display: none; }
+  .project-card:hover {
+    background-color: transparent;
+    color: inherit;
   }
 }
