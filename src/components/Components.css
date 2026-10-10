@@ -83,9 +83,18 @@ button a {
   }
 }
 
-.projects {
-  display: flex;
-  flex-direction: column;
+#projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  #projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 650px) {
+  #projects { grid-template-columns: 1fr; }
 }
 
 .project-card {
